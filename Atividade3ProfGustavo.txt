@@ -1,0 +1,38 @@
+Versionamento é a prática de fracionamento do desenvolvimento de um código/funcionalidade. Serve para manter registros e garantir a segurança das implementações.
+
+Justamente possibilita o fácil acesso à diferentes partes do projeto que estão sendo desenvolvidas, evitando que tenha algum bug ou funcionalidade não terminada que interfira na que irá desenvolver, e rastreando mudanças feitas por diferentes partes do time.
+
+CVS, Git, SourceSafe, Subversion (SVN), TFS, PVCS (Serena), Mercurial, etc..
+
+É criado uma versão principal (main ou master), que é administrada pelo dono do repositório e seus permissionados. São feitos "linhas alternativas" (branches) que são cópias para alteração sem influencia no master/main, rastreando as alterações feitas.
+Também são unidos, e rastreados,  os branches que se unem ao master/main. Implementando assim uma nova funcionalidade.
+
+Registram o estado do código, criam um checkpoint no histórico do projeto, registrando todas as modificações feitas nos arquivos até o momento.
+Facilitam a rastreabilidade, simplificam o objetivo de uma alteração, facilitando nova alteração do projeto. 
+Facilitam a colaboração, permitem que os devs registrem o que específicamente foi alterado, facilitando colaboração entre as partes da equipe.
+
+São "linhas alternativas" (os branches) que são cópias para alteração sem influencia no master/main, rastreando as alterações feitas.
+Os branches que se unem ao master/main, implementam uma nova funcionalidade rastreando todas as etapas do desenvolvimento. Facilitando assim independência do desenvolvimento de funcionalidades independente da sincronia da finalização delas.
+
+O Merge é o comando que une os branches de desenvolvimento. Combina novamente o master/main sem sobrescrever funcionalidades. É realizada conforme o seguinte step2step:
+-
+Acessa o o main
+git checkout main
+-
+Garante que o main está atualizado
+git pull origin main
+-
+Faz a mescla dos dois branches
+git merge feature
+-
+Após alterações e resolução de conflitos de arquivos ou de posicionamento de partes do código, executa ("comita") o merge
+git commit -m "Merge branch 'feature' into main"
+-
+Atualiza o main
+git push origin main
+
+O alinhamento da equipe é necessário para manutenção das mesmas práticas, foco de features a serem feitas com o devido tempo, manutenção de qualidade/funcionalidade do código, etc. E por ser algo pessoal, embora adaptável, são características que podem ser observadas para controle, manutenção e orientação pelo "dono/chefe" do branch main.
+
+Ser claro e objetivo, descrevendo analíticamente as características e funcionalidades do commit. Considerar o leitor e adequar a mensagem ao colaborador que irá de fato utilizar/alterar futuramente aquele commit. Explicar o que foi feito descrevendo de maneira simples a alteração. Seguir a convenção de commit acordada pela equipe. Usar um prefixo para identificar o tipo de alteração. Usar um verbo para o ponto principal do commit, categorizando por tipos de utilidades.
+
+A resolução é feita ao selecionar as partes conflitantes no ambiente específico da IDE, identificadas por handlers próprios para fácil identificação, e literalmente editar/cortar o que está gerando o conflito. Seja uma característica primitiva do programa que não é mais utilizada como era, ou se houve implementações diferentes do mesmo método/funcionalidade.
